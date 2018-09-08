@@ -1,0 +1,183 @@
+int pinA = 3;
+int pinB = 2;
+int pinC = 7;
+int pinD = 8;
+int pinE = 9;
+int pinF = 4;
+int pinG = 5;
+int pinDP = 6;
+
+boolean high = false;
+
+void setup()
+{
+  pinMode(pinA, OUTPUT);
+  pinMode(pinB, OUTPUT);
+  pinMode(pinC, OUTPUT);
+  pinMode(pinD, OUTPUT);
+  pinMode(pinE, OUTPUT);
+  pinMode(pinF, OUTPUT);
+  pinMode(pinG, OUTPUT);
+  pinMode(pinDP, OUTPUT);
+}
+
+void loop()
+{
+  num0();
+  blinkDP();
+  blinkDP();
+  num1();
+  blinkDP();
+  blinkDP();
+  num2();
+  blinkDP();
+  blinkDP();
+  num3();
+  blinkDP();
+  blinkDP();
+  num4();
+  blinkDP();
+  blinkDP();
+  num5();
+  blinkDP();
+  blinkDP();
+  num6();
+  blinkDP();
+  blinkDP();
+  num7();
+  blinkDP();
+  blinkDP();
+  num8();
+  blinkDP();
+  blinkDP();
+  num9();
+  blinkDP();
+  blinkDP();
+}
+
+void blinkDP() // Faz o DP piscar.
+{
+  if (high)
+  {
+    digitalWrite(pinDP, HIGH);
+  }
+  else
+  {
+    digitalWrite(pinDP, LOW);
+  }
+  
+  high = !high;
+  
+  delay(1000);
+}
+
+void reset()
+{
+  digitalWrite(pinA, HIGH);
+  digitalWrite(pinB, HIGH);
+  digitalWrite(pinC, HIGH);
+  digitalWrite(pinD, HIGH);
+  digitalWrite(pinE, HIGH);
+  digitalWrite(pinF, HIGH);
+  digitalWrite(pinG, HIGH);
+  //digitalWrite(pinDP, HIGH);
+}
+
+void num1() // Número 1.
+{
+  reset();
+  digitalWrite(pinB, LOW);
+  digitalWrite(pinC, LOW);
+}
+
+void num2() // Número 2.
+{
+  reset();
+  digitalWrite(pinA, LOW);
+  digitalWrite(pinB, LOW);
+  digitalWrite(pinD, LOW);
+  digitalWrite(pinE, LOW);
+  digitalWrite(pinG, LOW);
+}
+
+void num3() // Número 3.
+{
+  reset();
+  digitalWrite(pinA, LOW);
+  digitalWrite(pinB, LOW);
+  digitalWrite(pinC, LOW);
+  digitalWrite(pinD, LOW);
+  digitalWrite(pinG, LOW);
+}
+
+void num4() // Número 4.
+{
+  reset();
+  digitalWrite(pinB, LOW);
+  digitalWrite(pinC, LOW);
+  digitalWrite(pinF, LOW);
+  digitalWrite(pinG, LOW);
+}
+
+void num5() // Número 5.
+{
+  reset();
+  digitalWrite(pinA, LOW);
+  digitalWrite(pinC, LOW);
+  digitalWrite(pinD, LOW);
+  digitalWrite(pinF, LOW);
+  digitalWrite(pinG, LOW);
+}
+
+void num6() // Número 6.
+{
+  reset();
+  digitalWrite(pinA, LOW);
+  digitalWrite(pinC, LOW);
+  digitalWrite(pinD, LOW);
+  digitalWrite(pinE, LOW);
+  digitalWrite(pinF, LOW);
+  digitalWrite(pinG, LOW);
+}
+
+void num7() // Número 7.
+{
+  reset();
+  digitalWrite(pinA, LOW);
+  digitalWrite(pinB, LOW);
+  digitalWrite(pinC, LOW);
+}
+
+void num8() // Número 8.
+{
+  reset();
+  digitalWrite(pinA, LOW);
+  digitalWrite(pinB, LOW);
+  digitalWrite(pinC, LOW);
+  digitalWrite(pinD, LOW);
+  digitalWrite(pinE, LOW);
+  digitalWrite(pinF, LOW);
+  digitalWrite(pinG, LOW);
+}
+
+void num9() // Número 9.
+{
+  reset();
+  digitalWrite(pinA, LOW);
+  digitalWrite(pinB, LOW);
+  digitalWrite(pinC, LOW);
+  digitalWrite(pinD, LOW);
+  digitalWrite(pinF, LOW);
+  digitalWrite(pinG, LOW);
+}
+
+void num0() // Número 0.
+{
+  reset();
+  digitalWrite(pinA, LOW);
+  digitalWrite(pinB, LOW);
+  digitalWrite(pinC, LOW);
+  digitalWrite(pinD, LOW);
+  digitalWrite(pinE, LOW);
+  digitalWrite(pinF, LOW);
+}

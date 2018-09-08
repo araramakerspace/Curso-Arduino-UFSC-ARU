@@ -1,0 +1,69 @@
+//Declaração das constantes referentes aos pinos digitais.
+const int ledVerde = 13;
+const int ledAmarelo = 12;
+const int ledVermelho = 11;
+int inches = 0;
+
+int cm = 0;
+
+long microsec = 0;
+
+ 
+void setup() {
+  pinMode(7, INPUT);
+  Serial.begin(9600); //Inicializando o serial monitor
+   
+  //Definindo pinos digitais
+  pinMode(ledVerde,OUTPUT); //13 como de saída.
+  pinMode(ledAmarelo,OUTPUT); //12 como de saída.
+  pinMode(ledVermelho,OUTPUT); //11 como de saída.
+}
+
+long readUltrasonicDistance(int pin)
+{
+  pinMode(pin, OUTPUT);  //Limpa o tigger
+  digitalWrite(pin, LOW);
+  delayMicroseconds(2);
+  // COLOCA O PINO ALTO POR  10 micro seconds
+  digitalWrite(pin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(pin, LOW);
+  pinMode(pin, INPUT);
+  // Reads the pin, and returns the sound wave travel time in microseconds
+  return pulseIn(pin, HIGH);
+}
+
+
+//Método que centraliza o controle de acendimento dos leds.
+void ledDistancia(int cm) {
+   
+  //Apagando todos os leds
+  digitalWrite(ledVerde,LOW);  
+  digitalWrite(ledAmarelo,LOW);
+  digitalWrite(ledVermelho,LOW);
+   
+  //Acendendo o led adequado para a distância lida no sensor
+  if (cm > 20) {
+    Serial.print(cm);
+    digitalWrite(ledVerde,HIGH);  
+  }
+   
+  if (cm <=20 and cm >= 10) {
+    Serial.print(cm);
+    digitalWrite(ledAmarelo,HIGH);
+  }
+   
+  if (cm < 10) {
+    Serial.print(cm);
+    digitalWrite(ledVermelho,HIGH);
+  }
+}
+void loop() {  
+
+  cm = 0.01723 * readUltrasonicDistance(7);
+  delay(1000);
+  ledDistancia(cm);
+  
+  delay(1000);
+}
+ 
